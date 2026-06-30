@@ -23,6 +23,7 @@ async function main() {
     const raw: RawPost = {
       title: data.title,
       content: data.content,
+      images: Array.isArray(data.images) ? data.images : [],
       sourceUrl: data.sourceUrl,
       sourceName: data.sourceName,
       publishedAt: data.createdAt?.toDate() ?? new Date(),

@@ -25,6 +25,7 @@ export default function PostForm({ initialData }: Props) {
     title: initialData?.title ?? "",
     summary: initialData?.summary ?? "",
     content: initialData?.content ?? "",
+    images: initialData?.images ?? [],
     sourceUrl: initialData?.sourceUrl ?? "",
     sourceName: initialData?.sourceName ?? "",
     category: initialData?.category ?? "복지",
