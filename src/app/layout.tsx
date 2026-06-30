@@ -31,8 +31,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   verification: {
-    // Google Search Console 인증 코드 추가 후 아래 주석 해제
-    // google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: "4oUpq5twpZqrNtxW9V6OBU900SGDIzsBdE87ZXy4xU4",
   },
 };
 
