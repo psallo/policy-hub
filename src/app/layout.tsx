@@ -30,9 +30,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  verification: {
-    google: "4oUpq5twpZqrNtxW9V6OBU900SGDIzsBdE87ZXy4xU4",
-  },
+  verification: {},
 };
 
 export default function RootLayout({
@@ -43,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta name="google-site-verification" content="4oUpq5twpZqrNtxW9V6OBU900SGDIzsBdE87ZXy4xU4" />
         {/* AdSense 승인 후 NEXT_PUBLIC_ADSENSE_CLIENT 환경변수 설정 */}
         {ADSENSE_CLIENT && (
           <Script
