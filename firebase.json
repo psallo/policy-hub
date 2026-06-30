@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": ".next",
+    "ignore": ["firebase.json", "**/.*"],
+    "frameworksBackend": {
+      "region": "asia-northeast3"
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
