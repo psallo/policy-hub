@@ -40,6 +40,11 @@ export default function AdminPostsPage() {
   async function handleDelete(id: string, title: string) {
     if (!confirm(`"${title}"을 삭제할까요?`)) return;
     await deletePost(id);
+    await fetch("/api/revalidate", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ postId: id }),
+    });
     setPosts((prev) => prev.filter((p) => p.id !== id));
   }
 

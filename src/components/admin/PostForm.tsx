@@ -43,11 +43,18 @@ export default function PostForm({ initialData }: Props) {
     setError("");
     setLoading(true);
     try {
+      let postId = initialData?.id;
       if (isEdit) {
-        await updatePost(initialData!.id!, form);
+        await updatePost(postId!, form);
       } else {
-        await createPost(form);
+        const ref = await createPost(form);
+        postId = ref.id;
       }
+      await fetch("/api/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ postId }),
+      });
       router.push("/admin/posts");
       router.refresh();
     } catch (err) {
