@@ -1,7 +1,7 @@
 import { getAllPostIds } from "@/lib/firestore";
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://policyhub.kr";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://policy-hub-git-main-psallos-projects.vercel.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPostIds();

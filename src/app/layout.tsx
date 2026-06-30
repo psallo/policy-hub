@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 
-const SITE_URL = "https://policyhub.kr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://policy-hub-git-main-psallos-projects.vercel.app";
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
 export const metadata: Metadata = {
