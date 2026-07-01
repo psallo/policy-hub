@@ -1,6 +1,8 @@
 #!/bin/bash
 # 정책허브 크롤러 실행 스크립트 (Mac launchd 용)
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_FILE="$SCRIPT_DIR/crawl.log"
 MAX_LOG_LINES=1000
