@@ -7,6 +7,8 @@ import {
   getDocs,
   doc,
   getDoc,
+  updateDoc,
+  increment,
   type QueryConstraint,
 } from "firebase/firestore";
 import { db } from "./firebase";
@@ -18,13 +20,18 @@ function toPost(id: string, data: Record<string, unknown>): Post {
   return {
     ...data,
     id,
-    images: Array.isArray(data.images) ? data.images : [],  // 구 데이터 호환
+    images: Array.isArray(data.images) ? data.images : [],
+    views: typeof data.views === "number" ? data.views : 0,
     deadline: data.deadline
       ? (data.deadline as { toDate(): Date }).toDate()
       : null,
     createdAt: (data.createdAt as { toDate(): Date }).toDate(),
     updatedAt: (data.updatedAt as { toDate(): Date }).toDate(),
   } as Post;
+}
+
+export async function incrementViews(id: string): Promise<void> {
+  await updateDoc(doc(db, "posts", id), { views: increment(1) });
 }
 
 export async function getPosts(options?: {

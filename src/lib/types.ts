@@ -17,6 +17,7 @@ export interface Post {
   tags: string[];
   deadline: Date | null;
   isAiSummary: boolean;
+  views: number;
   createdAt: Date;
   updatedAt: Date;
 }

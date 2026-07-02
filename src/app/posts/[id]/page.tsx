@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AiDisclaimer from "@/components/AiDisclaimer";
+import ViewCounter from "@/components/ViewCounter";
 
 export const revalidate = 3600;
 
@@ -88,9 +89,10 @@ export default async function PostPage({
       </h1>
 
       {/* 메타 */}
-      <p className="mb-8 text-sm text-gray-400">
-        {post.sourceName} · {new Date(post.createdAt).toLocaleDateString("ko-KR")}
-      </p>
+      <div className="mb-8 flex items-center gap-3 text-sm text-gray-400">
+        <span>{post.sourceName} · {new Date(post.createdAt).toLocaleDateString("ko-KR")}</span>
+        <ViewCounter postId={post.id} initialViews={post.views} />
+      </div>
 
       {post.isAiSummary && <AiDisclaimer />}
 
